@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign Up - TravelMate</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@600&display=swap');
+      *
+      {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      body {
+         font-family: 'Edu NSW ACT Foundation', cursive;
+        background-color: #5f71fd;
+        color: #ffffff;
+      }
+
+      .container {
+        background-color: #3b47a6;
+        padding: 40px;
+        max-width: 500px;
+        margin: auto;
+        margin-top: 110px;
+        border-radius: 10px;
+        /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); */
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 30px;
+      }
+
+      input[type="text"],
+      input[type="password"],
+      input[type="email"] {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        border-radius: 7px;
+        margin-bottom: 20px;
+        margin-top: 7px;
+        font-size: 15px;
+        font-family: 'Edu NSW ACT Foundation', cursive;
+      }
+
+      button[type="submit"] {
+        background-color: #5f71fd;
+        color: #fdf2ff;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 20px;
+        font-family: 'Edu NSW ACT Foundation', cursive;
+        transition: all 0.4s ease-in-out;
+      }
+
+      button[type="submit"]:hover {
+        background-color: #45a049;
+      }
+
+      .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        background-color: #f44336;
+      }
+
+      .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+        position: relative;
+      }
+
+      img.avatar {
+        width: 40%;
+        border-radius: 50%;
+      }
+
+      .error {
+        color: red;
+      }
+    </style>
+  <div class="container">
+		<h1>Sign Up</h1>
+		<form id="signup-form" action="#" method="post">
+			<label for="name">Name:</label>
+			<input type="text" id="name" name="name" placeholder="Enter your full name" required>
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email" placeholder="Enter your email"  required>
+      <label for="password">Password:</label>
+			<input type="password" id="email" name="password" placeholder="Enter your password"  required>
+			<button type="submit">Sign Up</button>
+		</form>
+	</div>
+  </body>
+</html>
+

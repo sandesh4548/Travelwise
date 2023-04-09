@@ -1,0 +1,130 @@
+/* imports*/
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* nav bar style starts*/
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background: linear-gradient(145deg, rgba(226,91,91,1) 1%, rgba(214,93,227,1) 100%); */
+    background-color: #1a2470;
+    color: #fff;
+    height: 70px;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+}
+
+.nav-item {
+    margin-left: 35px;
+}
+
+.nav-item a {
+    color: #000000;
+    background-color: rgb(255, 255, 255);
+    text-decoration: none;
+    /* border: solid; */
+    padding: 10px 30px;
+    border-radius: 10px;
+    /* transition: background-color 0.7s ease;
+    transition: padding 0.5s ease-in-out; */
+    transition: all 0.3s ease-in-out;
+
+}
+
+.nav-item a:hover {
+    /* background:  rgb(119, 98, 255) ; */
+    background-color: #5f71fd;
+    padding: 13px 40px;
+    color: #fff;
+    font-weight: 600;
+}
+
+button {
+    display: none;
+}
+
+/* nav bar style ends*/
+
+/* hero section start*/
+.hero {
+    background-image: url("maldives-1993704.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 91vh;
+    display: flex;
+    justify-content: left;
+    /* align-items: center; */
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: #05006859; set the opacity of the black overlay */
+    background: linear-gradient(145deg, rgba(119, 78, 255, 0.151) 1%, rgba(93, 95, 227, 0.189) 100%);
+}
+
+.hero-content {
+    /* text-align: center;   */
+    color: #ffffff;
+    max-width: 1000px;
+    padding: 0 30px;
+    margin-top: 100px;
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    font-family: 'Lobster', cursive;
+}
+
+.hero-content p {
+    font-size: 1.9rem;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    font-family: 'Edu NSW ACT Foundation', cursive;
+}
+
+.btn {
+    display: inline-block;
+    background: white;
+    color: #000000;
+    padding: 15px 35px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    font-size: 1.3rem;
+    box-shadow: 3px 3px 10px white;
+}
+
+.btn:hover {
+    color: #fff;
+    background: #5f71fd;
+    padding: 17px 50px;
+    box-shadow: 5px 5px 10px #5f71fd;
+}

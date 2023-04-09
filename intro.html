@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Travel Mate</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-header">
+        <div class="ano">
+          <p style="font-size: 1.6rem">Travel Mate</p>
+        </div>
+        <div class="ano2">
+          <button type="button" class="navbar-toggle" id="navbar-toggle">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+      </div>
+      <div class="navbar-menu" id="navbar-menu">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="signup.html">Sign up</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Discover Your Next Adventure</h1>
+        <p>
+          Explore amazing places around the world
+          <span style="font-style: italic; font-size: 1.1rem; color: #3e1643"
+            ><b><a href="signup.html">Sign up to begin your wonderful journey</a></b></span
+          >
+        </p>
+        <a href="signup.html" class="btn">Sign up</a>
+      </div>
+    </section>
+
+    <script>
+      const navbarToggle = document.getElementById("navbar-toggle");
+      const navbarMenu = document.getElementById("navbar-menu");
+
+      navbarToggle.addEventListener("click", () => {
+        navbarMenu.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>

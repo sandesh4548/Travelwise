@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign Up</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@600&display=swap');
+      *
+      {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      body {
+         font-family: 'Edu NSW ACT Foundation', cursive;
+        background-color: #5f71fd;
+        color: #ffffff;
+      }
+
+      .container {
+        background-color: #3b47a6;
+        padding: 40px;
+        max-width: 500px;
+        margin: auto;
+        margin-top: 110px;
+        border-radius: 10px;
+        /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); */
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 30px;
+      }
+
+      input[type="text"],
+      input[type="password"],
+      input[type="email"] {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        border-radius: 7px;
+        margin-bottom: 20px;
+        margin-top: 7px;
+        font-size: 15px;
+        font-family: 'Edu NSW ACT Foundation', cursive;
+      }
+
+      button[type="submit"] {
+        background-color: #5f71fd;
+        color: #fdf2ff;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 20px;
+        font-family: 'Edu NSW ACT Foundation', cursive;
+        transition: all 0.4s ease-in-out;
+      }
+
+      button[type="submit"]:hover {
+        background-color: #45a049;
+      }
+
+      .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        background-color: #f44336;
+      }
+
+      .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+        position: relative;
+      }
+
+      img.avatar {
+        width: 40%;
+        border-radius: 50%;
+      }
+
+      .error {
+        color: red;
+      }
+    </style>
+  <div class="container">
+		<h1>Sign In</h1>
+		<form id="signup-form" action="http://127.0.0.1:5000/api/v1/signin" method="post">
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email" placeholder="Enter your email"  required>
+      <label for="password">Password:</label>
+			<input type="password" class="password" name="password" placeholder="Enter your password"  required>
+			<h2 id="feedback"></h2>
+      <button type="submit">Sign In</button>
+		</form>
+	</div>
+
+	<script>
+    async function userLoggedIn() {
+      const response = await fetch("http://localhost:5000/api/v1/user_status")
+      const user_exists = await response.text()
+      if (user_exists === "true") {
+        window.location.href = "http://127.0.0.1:5500/home.html"
+        return
+      }
+      var form = document.querySelector("#signup-form")
+      var button = document.querySelector("#button")
+      form.addEventListener("submit", async function (event) {
+        const filled_form = new FormData(form, button)
+        event.preventDefault(); 
+        let json = {}
+        for ([key, value] of filled_form) {
+          if (key === "email") {
+            json["email"] = value
+          }
+          if (key === "password") {
+            json["password"] = value
+          }
+        }
+        const response = await fetch("http://localhost:5000/api/v1/signin", {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(json)
+          });
+          const message = await response.text()
+          console.log(message)
+          const feedback = document.querySelector("#feedback")
+          feedback.innerHTML = message
+          if (message == "Successfully signed in") {
+            window.location.href = "http://127.0.0.1:5500/home.html"
+          }
+      });
+      
+    }
+    userLoggedIn()
+
+	</script>
+  </body>
+</html>

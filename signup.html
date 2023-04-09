@@ -97,6 +97,49 @@
 			<button type="submit">Sign Up</button>
 		</form>
 	</div>
+  
+  <script>
+    async function userLoggedIn() {
+      const response = await fetch("http://localhost:5000/api/v1/user_status")
+      const user_exists = await response.text()
+      if (user_exists === "true") {
+        window.location.href = "http://127.0.0.1:5500/home.html"
+        return
+      }
+
+      const form = document.querySelector("#signup-form")
+      const button = document.querySelector("#button")
+      form.addEventListener("submit", async function (event) {
+        const filled_form = new FormData(form, button)
+        event.preventDefault(); 
+        let json = {}
+        for (const [key, value] of filled_form) {
+          if (key === "email") {
+            json["email"] = value
+          }
+          if (key === "password") {
+            json["password"] = value
+          }
+        }
+        const response = await fetch("http://localhost:5000/api/v1/signup", {
+              method: 'POST',
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(json)
+          });
+          const message = await response.text()
+          console.log(message)
+          const feedback = document.querySelector("#feedback")
+          feedback.innerHTML = message
+          if (message == "Registration successful") {
+            window.location.href = "http://127.0.0.1:5500/home.html"
+          }
+        });
+    }
+    userLoggedIn()
+	</script>
   </body>
 </html>
 
